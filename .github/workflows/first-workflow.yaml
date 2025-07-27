@@ -24,5 +24,5 @@ jobs:
             - name: echo a string
               run: Write-Output "Windows Job"
             - name: Error step
-              run: doesnt-exist
+              run: Write-Output "This step will fail"
 
