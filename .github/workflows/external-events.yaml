@@ -6,5 +6,5 @@ jobs:
     echo-a-string:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "This is a string from the repository_dispatch event"
+            - run: echo ${{ github.event.client_payload.env }}
         
