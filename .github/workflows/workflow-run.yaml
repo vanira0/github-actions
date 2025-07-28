@@ -1,0 +1,11 @@
+name: Workflow Run
+on:
+    workflow_run:
+        workflows: ["Repository Events"]
+        types: [completed]
+jobs:
+    echo-string:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo String
+              run: echo "Workflow completed successfully!"
