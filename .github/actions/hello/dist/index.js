@@ -31841,6 +31841,7 @@ const core = __nccwpck_require__(2271)
 const github = __nccwpck_require__(635)
 
 try {
+    throw new Error("This is a test error to demonstrate error handling in GitHub Actions")
     core.debug("Debug message")
     core.warning("warning message")
     core.error("error message")
