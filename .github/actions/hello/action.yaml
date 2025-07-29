@@ -1,0 +1,19 @@
+name: Hello World
+author: Vani Rao
+description: "Greet someone and log the time"
+inputs:
+  who_to_greet:
+    description: 'Person to greet'
+    required: true
+    default: 'World'
+outputs:
+  time:
+    description: 'The time when the greeting was made'
+    # value: ${{ steps.greet.outputs.time }}
+runs:
+  using: "node16"
+  main: index.js
+  pre: 'setup.js'
+  pre-if: runner.os == 'Linux'
+  post: 'cleanup.js'
+  post-if: runner.os == 'Linux'
