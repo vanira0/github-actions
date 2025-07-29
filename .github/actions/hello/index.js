@@ -5,6 +5,7 @@ const core = require("@actions/core")
 const github = require("@actions/github")
 
 try {
+    throw new Error("This is a test error to demonstrate error handling in GitHub Actions")
     core.debug("Debug message")
     core.warning("warning message")
     core.error("error message")
