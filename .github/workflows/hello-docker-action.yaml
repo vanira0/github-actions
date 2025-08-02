@@ -6,12 +6,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v3
-          - name: Simple JavaScript Action
+          - name: Simple Docker Action
             id: greet
-            uses: ./.github/actions/hello
+            uses: ./.github/actions/hello-docker
             # uses: actions/hello-world-javascript-action@f8b77f4e965a4985f6e2ae52e42bb7da3cf3876c
             with:
-              who_to_greet: 'Peter the Cat :)'
+              who_to_greet: 'Jhoungdu Pal the Cat :)'
           - name: Log Greeting Time
             run: echo "${{steps.greet.outputs.time}}"
           - name: Log ENV Var
