@@ -9,7 +9,7 @@ jobs:
             # credentials:
             #     username:
             #     password:
-            env: 
+            env:
                 API_URL: some-url.com
             ports:
                 - 80
@@ -29,21 +29,28 @@ jobs:
               run: echo "Some text" > text.txt
             - name: Container in a step
               uses: docker://node:18.16-alpine3.17
-              with: 
-                entrypoint: /usr/local/bin/node  # overriding entrypoint
-                args: -p 2+3
+              with:
+                  entrypoint: /usr/local/bin/node # overriding entrypoint
+                  args: -p 2+3
             - name: Log node version
               uses: docker://node:18.16-alpine3.17
               with:
-                args: -v
+                  args: -v
             - name: Show file contents
               uses: docker://node:18.16-alpine3.17
               with:
-                entrypoint: cat 
-                args: text.txt
+                  entrypoint: cat
+                  args: text.txt
             - uses: actions/checkout@v3
             - name: Run a bash script
               uses: docker://node:18.16-alpine3.17
-              with: 
-                entrypoint: ./script.sh
-                args: "Some string"
+              with:
+                  entrypoint: ./script.sh
+                  args: "Some string"
+            - name: Send a slack message
+              uses: docker://technosophos/slack-notify
+              env:
+                  SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
+                  SLACK_TITLE: From Github actions
+                  SLACK_MESSAGE: "Actor: ${{github.actor}}, Event: ${{github.event_name}}"
+                  SLACK_COLOR: "#724fff"
