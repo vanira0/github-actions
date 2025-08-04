@@ -5,7 +5,7 @@ inputs:
   slack_username:
     description: "Slack username"
   upload_joke:
-    description: "Upload Joke as an Artifact"
+    description: "Upload Joke as an Artifact?"
   slack_webhook:
     description: "Slack Webhook"
 outputs:
@@ -31,7 +31,7 @@ runs:
       if: inputs.upload_joke
     - name: Upload the joke
       if: inputs.upload_joke
-      uses: actions/upload-artifacts@v3
+      uses: actions/upload-artifact@v3
       with:
         name: joke
         path: joke.txt
