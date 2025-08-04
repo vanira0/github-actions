@@ -1,0 +1,17 @@
+name: Slack joke Action
+on: [push]
+
+jobs:
+    simple-action:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Send a joke on slack
+              uses: ./.github/actions/slack-joke
+              id: slack-joke
+              with:
+                  slack_username: vani
+                  upload_joke: true
+                  slack_webhook: ${{secrets.SLACK_WEBHOOK}}
+            - name: Display joke output
+              run: echo '${{steps.slack-joke.outputs.joke}}'
