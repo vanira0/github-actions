@@ -10,7 +10,7 @@ on:
 
 jobs:
     calling-a-reusable-workflow:
-        uses: vanira0/gh-resuable-workflow-example/.github/workflows/reusable.yaml@main
+        uses: vanira0/gh-resuable-workflow-example/.github/workflows/reusable.yaml@master
         with:
             name: ${{ inputs.name }}
         secrets:
