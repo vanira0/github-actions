@@ -10,10 +10,10 @@ jobs:
         id: cache-dependencies
         uses: actions/cache@v3
         with:
-            path: ~/.npm
-            key: "npm-cache"
+          path: ~/.npm
+          key: "npm-cache"
       - name: Display cache status
-        run: echo 'Cache hit: ${{ toJSON(steps.cache-dependencies.outputs) }}'
+        run: echo "${{ toJSON(steps.cache-dependencies.outputs) }}"
       - name: install dependencies
         run: npm install
       - name: Use Axios
