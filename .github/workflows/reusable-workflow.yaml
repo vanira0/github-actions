@@ -5,9 +5,15 @@ on:
             date:
                 description: "The current date"
                 value: ${{ jobs.generate-output.outputs.date }}
-                
+
 
 jobs:
+    nested-reusable-workflow:
+        uses: vanira0/gh-resuable-workflow-example/.github/workflows/reusable.yaml@master
+        with:
+            name: ${{ inputs.name }}
+        secrets:
+            access-token: ${{ secrets.ACCESS_TOKEN }}
     generate-output:
         runs-on: ubuntu-latest
         outputs:
